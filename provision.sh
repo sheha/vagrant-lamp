@@ -55,14 +55,36 @@ apache_go() {
 	if [ ! -f "${apache_vhost_file}" ]; then
 		cat << EOF > ${apache_vhost_file}
 <VirtualHost *:80>
-    ServerAdmin webmaster@localhost
-    DocumentRoot /vagrant/${project_web_root}
-    LogLevel debug
+    ServerAdmin i.sheeha@gmail.com
+    DocumentRoot vagra
+
+    RewriteEngine On
+    RewriteLog /var/log/apache2/rewrite.log
 
     ErrorLog /var/log/apache2/error.log
-    CustomLog /var/log/apache2/access.log combined
+    CustomLog /var/log/apache2/access.log
+
+    <Directory "/var/www">
+
+          AllowOverride All
+          Options +Indexes
+          Order allow,deny
+          Allow from all
+
+          <Directory "/var/www/phonebook">
+              AllowOverride All
+              Options +Indexes
+              DirectoryIndex index.php
+              Order allow,deny
+              Allow from all
+            </Directory>
+
+     </Directory>
+
+    LogLevel alert rewrite:trace6
 
     <Directory /vagrant/${project_web_root}>
+        Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
     </Directory>

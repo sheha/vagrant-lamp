@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/application" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/assets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/system" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/upload" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/application/views" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
